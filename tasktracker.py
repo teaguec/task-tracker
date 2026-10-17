@@ -2,6 +2,8 @@ import json
 import sys
 import os
 
+
+
 def load_tasks():
     if os.path.exists('file.json'):
         with open('file.json', 'r') as f:
@@ -27,8 +29,15 @@ def update(task, status):
     
     with open('file.json', 'w') as f:
         json.dump(data, f, indent=4)
-            
-    
+
+def delete(task):
+    data = load_tasks()
+    for item in data:
+        if item["task"] == task:
+            data.remove(item)
+            break
+    with open('file.json', 'w') as f:
+        json.dump(data, f, indent=4)
 
     
 
@@ -44,3 +53,5 @@ match action:
         add(task, status)
     case "update":
         update(task, status)
+    case "delete":
+        delete(task)
