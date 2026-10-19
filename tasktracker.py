@@ -41,7 +41,16 @@ def delete():
     with open('file.json', 'w') as f:
         json.dump(data, f, indent=4)
 
-    
+def show_list():
+    data = load_tasks()
+    print("TO DO LIST\n----------")
+    for i in data:
+        if i.get("status") is None:
+            i["status"] = "null"
+        print(f"Task: {i["task"]}, Status: {i["status"]}")
+
+
+
 
 action = sys.argv[1].lower()
 
@@ -52,3 +61,5 @@ match action:
         update()
     case "delete":
         delete()
+    case "list":
+        show_list()
