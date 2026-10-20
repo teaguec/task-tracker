@@ -2,7 +2,9 @@
     {
         "id": 1,
         "task": "walk",
-        "description": "walk dog",
-        "createdAt": "2026-10-19 12:20:50"
+        "description": "Walk the dog",
+        "status": "in-progress",
+        "createdAt": "2026-10-19 14:52:48",
+        "updatedAt": "2026-10-19 14:53:36"
     }
 ]
